@@ -1,0 +1,14 @@
+{
+    "epochs_n": 100,
+    "filters": 64,
+    "units": 128,
+    "dropout_rate": 0.2,
+    "recurrent_dropout_rate": 0.2,
+    "batch_size": 1000,
+    "patience": 20,
+    "max_features": 5000,
+    "min_df": 5,
+    "test_size": 0.3,
+    "no_attributes": 256,
+    "kernel_size": 128
+}
