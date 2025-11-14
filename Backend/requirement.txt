@@ -1,0 +1,23 @@
+# ================================
+# 📦 Inference Service Dependencies
+# ================================
+
+# --- Core Framework ---
+fastapi==0.115.2
+uvicorn==0.32.0
+pydantic==2.9.2
+
+# --- Machine Learning / Deep Learning ---
+numpy==1.26.4
+keras==3.4.1
+tensorflow==2.16.1
+
+# --- Transformers & NLP ---
+sentence-transformers==3.0.1
+simpletransformers==0.64.3
+transformers==4.44.2
+torch==2.3.1
+scikit-learn==1.5.2
+
+# --- Utilities ---
+pickle-mixin==1.0.2
