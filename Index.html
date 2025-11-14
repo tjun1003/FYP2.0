@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Classification Demo (RAG Enhanced)</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="App.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Adversarial Information Detection System</h1>
+        </div>
+
+        <div class="content">
+            <div class="input-section">
+                <label for="textInput">Enter the statement to verify:</label>
+                <textarea 
+                    id="textInput" 
+                    placeholder="e.g., Says the unemployment rate has dropped to 3%"
+                ></textarea>
+                
+                <!-- RAG Options -->
+                <div class="rag-options">
+                    <div class="rag-info">
+                        <span class="info-icon"></span>
+                        <span>The system will automatically retrieve relevant information from the web to improve judgment accuracy.</span>
+                    </div>
+                    
+                    <div class="source-options" id="sourceOptions">
+                        <span>Retrieval Sources:</span>
+                        <label class="checkbox-label-inline">
+                            <input type="checkbox" class="source-checkbox" value="wikipedia" checked>
+                            Wikipedia
+                        </label>
+                        <label class="checkbox-label-inline">
+                            <input type="checkbox" class="source-checkbox" value="web" checked>
+                            Web Search
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn-predict" onclick="predict()">
+                        Start Analysis
+                    </button>
+                    <button class="btn-clear" onclick="clearAll()">
+                        Clear
+                    </button>
+                </div>
+            </div>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p id="loadingText">Analyzing, please wait...</p>
+            </div>
+
+            <!-- Retrieval Results Display -->
+            <div class="retrieval-results" id="retrievalResults">
+                <div class="retrieval-header">
+                    <h3 id="retrievalTitle">Retrieved References</h3>
+                    <span class="source-count" id="sourceCount">0 Sources</span>
+                </div>
+                <div id="retrievalContent"></div>
+            </div>
+
+            <!-- Retrieval Warning -->
+            <div class="retrieval-warning" id="retrievalWarning">
+                <div class="warning-content">
+                    <span class="warning-icon"></span>
+                    <div>
+                        <strong>No relevant information found</strong>
+                        <p id="warningMessage">The system attempted retrieval but found no relevant web information. Judgment will be based solely on the model's internal knowledge.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result" id="result">
+                <div class="result-header">
+                    <div>
+                        <div class="result-subtitle">Prediction Result</div>
+                        <div class="result-label" id="resultLabel">-</div>
+                    </div>
+                    <div class="result-confidence" id="resultConfidence">-</div>
+                </div>
+
+                <div class="probabilities">
+                    <div class="prob-title">Probability Distribution Across All Classes</div>
+                    <div id="probabilities"></div>
+                </div>
+            </div>
+
+            <div class="error" id="error"></div>
+
+            <div class="examples">
+                <h3>Example Statements (Click to test quickly)</h3>
+                <span class="example-btn" onclick="setExample('Says the Annies List political group supports third-trimester abortions on demand.')">
+                    Abortion Policy Statement
+                </span>
+                <span class="example-btn" onclick="setExample('The unemployment rate has dropped to 5 percent.')">
+                    Unemployment Rate Statement
+                </span>
+                <span class="example-btn" onclick="setExample('Climate change is a hoax invented by China.')">
+                    Climate Change Statement
+                </span>
+                <span class="example-btn" onclick="setExample('Medicare for all would cost 32 trillion dollars.')">
+                    Healthcare Cost Statement
+                </span>
+                <span class="example-btn" onclick="setExample('COVID-19 vaccines were developed in less than a year.')">
+                    Vaccine Development Statement
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
